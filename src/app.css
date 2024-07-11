@@ -1,0 +1,7 @@
+:root {
+    background-image: var(--bg-img);
+}
+
+btn {
+    @apply tw-text-white !important;
+}
