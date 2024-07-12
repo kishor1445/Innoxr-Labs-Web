@@ -51,6 +51,11 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        project_0: "#C6621A",
+        project_1: "#A81AF0",
+        project_2: "#95380D",
+        project_3: "#E50622",
+        project_4: "#2C1296",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -77,5 +82,12 @@ module.exports = {
       }
     },
   },
+  safelist: [
+    "tw-bg-project_0",
+    "tw-bg-project_1",
+    "tw-bg-project_2",
+    "tw-bg-project_3",
+    "tw-bg-project_4",
+  ],
   plugins: [require("tailwindcss-animate")],
 }

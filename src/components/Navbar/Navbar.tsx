@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import LOGO from "@/assets/icon.png"
 import { Link } from 'react-scroll'
 import { motion } from 'framer-motion'

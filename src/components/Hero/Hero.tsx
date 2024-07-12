@@ -5,13 +5,30 @@ import Image from '@/assets/building.jpeg'
 import Navbar from '../Navbar/Navbar'
 import BImage from '@/assets/s_building.jpeg'
 import NextImage from '@/assets/s_chatbot.jpeg'
-import Ellipse_W from '@/assets/ellipse_white.png'
-import Ellipse_G from '@/assets/ellipse_gray.png'
 
 import Project0 from '@/assets/building.jpeg'
+import SelectBar from '@/components/SelectBar/SelectBar'
 
+type HeroProps = {
+    current: number,
+    setCurrent: Function
+}
 
 const Hero: React.FC = () => {
+    const title = [
+        "Building AR/VR",
+        "Influencer Chatbot",
+        "Interior AR",
+        "College VR",
+        "Speech to viedo"
+    ]
+    const btn_color = [
+        "#C6621A",
+        "#A81AF0",
+        "#95380D",
+        "#E50622",
+        "#2C1296"
+    ]
     const [BG, setBG] = useState([
 
     ])
@@ -25,7 +42,7 @@ const Hero: React.FC = () => {
     const [current, setCurrent] = useState<number>(0);
 
     const current_inc = () => {
-        if (current >= 5) {
+        if (current >= 4) {
             setCurrent(0)
         } else {
             setCurrent(current + 1)
@@ -39,6 +56,8 @@ const Hero: React.FC = () => {
             setCurrent(current - 1)
         }
     }
+
+    const temp = "#50d71e"
 
   return (
     <div className='tw-relative'>
@@ -56,10 +75,10 @@ const Hero: React.FC = () => {
                 delay: 1
              }}
             className='tw-absolute tw-flex tw-flex-col tw-bottom-96 tw-mx-20 tw-gap-8 tw-w-5/12'>
-            <h1 className='tw-text-6xl tw-font-donegal-one'>Building AR/VR</h1>
+            <h1 className='tw-text-6xl tw-font-donegal-one'>{title[current]}</h1>
             <p className='tw-text-xl'>AR: Architects can overlay 3D models onto physical spaces to visualize the final product within the real-world context. This allows for real-time adjustments and better client presentations.</p>
             <div>
-                <Button className='btn'>Explore Now</Button>
+                <Button className={`tw-bg-project_${current}`}>Explore Now</Button>
             </div>
         </motion.div>
         <motion.div
@@ -82,7 +101,7 @@ const Hero: React.FC = () => {
             </div>
             <div className='tw-w-1/3'>
                 <div className='tw-w-80 tw-h-96 tw-mt-16'>
-                    <img className='tw-rounded-3xl tw-h-full' src={NextImage} />
+                    <img className='tw-rounded-3xl tw-h-full tw-cursor-pointer' src={NextImage} onClick={current_inc} />
                 </div>
             </div>
         </motion.div>
@@ -98,14 +117,7 @@ const Hero: React.FC = () => {
                 delay: 1
              }}
             className='tw-absolute tw-bottom-5 tw-w-full tw-h-8 tw-flex tw-items-center tw-justify-center'>
-            <div className='tw-flex tw-gap-1'>
-                <img src={Ellipse_W} />
-                <img src={Ellipse_G} />
-                <img src={Ellipse_G} />
-                <img src={Ellipse_G} />
-                <img src={Ellipse_G} />
-                <img src={Ellipse_G} />
-            </div>
+            <SelectBar I={current} max={5} func={setCurrent} />
         </motion.div>
     </div>
     </div>
